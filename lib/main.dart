@@ -81,7 +81,13 @@ class WelcomePage extends StatelessWidget {
                     _buildLink("Lukman", "https://github.com/arbyazra123"),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              _buildLink(
+                  "source code", "https://github.com/qonfusee/l.qonfusee.com",
+                  isSmall: true),
             ],
           ),
         ),
@@ -89,16 +95,15 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildLink(String name, String link) {
+  Widget _buildLink(String name, String link, {bool isSmall = false}) {
     return InkWell(
-      onTap: ()=>_launchURL(link),
+      onTap: () => _launchURL(link),
       child: Text(
         name,
         style: style1.copyWith(
-          fontSize: 14,
-          fontWeight: FontWeight.w300,
-          decoration: TextDecoration.underline
-        ),
+            fontSize: isSmall ? 10 : 16,
+            fontWeight: FontWeight.w300,
+            decoration: TextDecoration.underline),
         textAlign: TextAlign.center,
       ),
     );
